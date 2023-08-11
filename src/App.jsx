@@ -2,21 +2,17 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-
+import Vans from "./Pages/Vans";
+import Navbar from "./Utility/Navbar";
+import "./FakeServer";
 function App() {
 	return (
 		<BrowserRouter>
-			<header>
-				<Link className="site-logo" to="/">
-					#VanLife
-				</Link>
-				<nav>
-					<Link to="/about">About</Link>
-				</nav>
-			</header>
+			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
+				<Route path="/vans" element={<Vans />} />
 			</Routes>
 		</BrowserRouter>
 	);

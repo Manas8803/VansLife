@@ -19,14 +19,18 @@ body {
 	scrollbar-width: none;
 }
 
-header {
-	height: 110px;
-	display: flex;
-	align-items: center;
-	padding-block: 10px;
+nav {
+	margin: 0;
+	padding: 0;
 }
 
-header .site-logo {
+.navbar {
+	display: flex;
+	height: 110px;
+	align-items: center;
+}
+
+.navbar .site-logo {
 	color: black;
 	margin-right: auto;
 	text-transform: uppercase;
@@ -34,20 +38,20 @@ header .site-logo {
 	font-size: 25px;
 }
 
-header a {
+.navbar a {
 	text-decoration: none;
 	color: #4d4d4d;
 	font-weight: 600;
 	padding: 5px 20px;
+	cursor: pointer;
 }
 
-header a:hover {
+.navbar a:hover {
 	color: #161616;
 	text-decoration: underline;
 }
 
 .link-button {
-	display: inline-block;
 	text-align: center;
 	text-decoration: none;
 	border: none;
@@ -107,6 +111,7 @@ header a:hover {
 }
 
 /*** ABOUT PAGE ***/
+
 .about-hero-image {
 	max-width: 100%;
 }
@@ -143,4 +148,138 @@ header a:hover {
 	background-color: #161616;
 	color: white;
 	border-radius: 10px;
+}
+
+/*** VANS PAGE ***/
+
+.Vans-container {
+	color: #161616;
+	font-family: "Inter";
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 37.652px;
+	padding: 1rem 1.2rem;
+}
+
+.Vans-share_button_link {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+	margin-bottom: 1rem;
+}
+
+.category_buttons {
+	display: flex;
+	gap: 1.2rem;
+}
+
+.category_buttons button {
+	border: none;
+	font-family: Inter;
+	padding: 6px 9px;
+	border-radius: 5px;
+	background: #ffead0;
+}
+
+.category_buttons button:hover {
+	background: #fca160;
+	cursor: pointer;
+}
+
+.clear_filter_button {
+	display: flex;
+}
+
+.clear_filter_button button {
+	background-color: transparent;
+	border: none;
+	color: #8d8d8d;
+	font-family: Inter;
+	font-size: 0.8rem;
+	font-weight: 500;
+	line-height: 23.919px;
+	text-decoration-line: underline;
+}
+
+.clear_filter_button button:hover {
+	color: #4e4e4e;
+	cursor: pointer;
+}
+
+.Van-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+/*^ VanCard */
+.vcard {
+	display: flex;
+	flex-direction: column;
+}
+
+.vcard p {
+	font-size: 0.8rem;
+	margin: 0;
+	padding: 0;
+}
+
+.vcard-img_container {
+	display: flex;
+}
+
+.vcard-img {
+	max-width: 9rem;
+	margin-bottom: 0.3rem;
+	border-radius: 5px;
+}
+
+.vcard-details {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	line-height: 1.2rem;
+	margin-bottom: 0.3rem;
+}
+
+.vcard-type {
+	display: flex;
+	margin-bottom: 0.6rem;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.vcard-type i {
+	font-family: "Inter";
+	border-radius: 5px;
+	font-style: normal;
+	padding: 0 0.6rem 0;
+	color: #ffead0;
+	font-size: 0.5rem;
+	line-height: 20px;
+	text-align: start;
+}
+
+.vcard-type .Simple {
+	background: #e17654;
+	max-height: 1.5rem;
+}
+.vcard-type .Rugged {
+	background: #115e59;
+	max-height: 1.5rem;
+}
+.vcard-type .Luxury {
+	background: #161616;
+	max-height: 1.5rem;
+}
+
+.perday {
+	display: flex;
+	max-height: fit-content;
+	font-weight: 200;
+	text-align: right;
+	font-size: 0.5rem;
+	line-height: 0.8rem;
 }
