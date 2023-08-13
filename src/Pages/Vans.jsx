@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import VanCard from "../Utility/VanCard";
+import { Link } from "react-router-dom";
 
 export default function Vans() {
 	const [vans, setVans] = useState([]);
 	useEffect(() => {
-		fetch("/api/vans")
-			.then((res) => res.json())
-			.then((data) => {
-				setVans(data.vans);
-				console.log(data.vans);
-			});
+		async function fetchData() {
+			const data = await fetch("/api/vans");
+			const { vans } = await data.json();
+			setVans(vans);
+		}
+		fetchData();
 	}, []);
 
 	return (
@@ -28,14 +29,20 @@ export default function Vans() {
 			<div className="Van-list">
 				{vans.map((van) => {
 					return (
-						<VanCard
-							name={van.name}
-							price={van.price}
-							type={van.type}
-							img={van.imageUrl}
-							id={van.id}
+						<Link
+							to={`/vans/${van.id}`}
+							style={{ textDecoration: "none", color: "black" }}
 							key={van.id}
-						/>
+						>
+							<VanCard
+								name={van.name}
+								price={van.price}
+								type={van.type}
+								img={van.imageUrl}
+								id={van.id}
+								key={van.id}
+							/>
+						</Link>
 					);
 				})}
 			</div>

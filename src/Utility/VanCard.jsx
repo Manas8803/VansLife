@@ -1,5 +1,3 @@
-import vanImg from "../assets/images/van5.svg";
-
 export default function VanCard(props) {
 	return (
 		<div className="vcard">
