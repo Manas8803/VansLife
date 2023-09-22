@@ -1,25 +1,36 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //* Component imports
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Vans from "./Pages/Vans";
-import VanDetail from "./Pages/VanDetail";
-import Navbar from "./Utility/Navbar";
+
+//* Van components
+import { VanDetail, Vans } from "./Pages/Vans";
+
+//* Host components
+import { Dashboard, Income, Reviews } from "./Pages/Host/Index";
 
 //* Server
 import "./FakeServer";
+import { HostLayout, Layout } from "./Layout/Index";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Navbar />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/vans" element={<Vans />} />
-				<Route path="/vans/:id" element={<VanDetail />} />
+				<Route path="/" element={<Layout />}>
+					<Route index element={<Home />} />
+					<Route path="about" element={<About />} />
+					<Route path="vans" element={<Vans />} />
+					<Route path="vans/:id" element={<VanDetail />} />
+					<Route path="host" element={<HostLayout />}>
+						<Route index element={<Dashboard />} />
+						<Route path="income" element={<Income />} />
+						//& Don't include '/' at the beginning.
+						<Route path="reviews" element={<Reviews />} />
+					</Route>
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	);

@@ -38,15 +38,23 @@ nav {
 	font-size: 25px;
 }
 
-.navbar a {
+a {
 	text-decoration: none;
-	color: #4d4d4d;
-	font-weight: 600;
 	padding: 5px 20px;
 	cursor: pointer;
 }
 
+.navbar .not-selected {
+	color: #928a8a;
+	text-decoration: none;
+}
+
 .navbar a:hover {
+	color: #161616;
+	text-decoration: underline;
+}
+
+.navbar .nav-selected {
 	color: #161616;
 	text-decoration: underline;
 }
@@ -352,4 +360,37 @@ nav {
 	border-radius: 4.98px;
 	font-weight: 900;
 	letter-spacing: 1px;
+}
+
+.HostLayout-nav {
+	display: flex;
+}
+
+.HostLayout-nav a {
+	color: #707070;
+	text-decoration: none;
+	font-weight: 500;
+	padding: 5px 20px;
+}
+
+.HostLayout-nav a:hover {
+	color: #161616;
+	font-weight: 900;
+}
+
+.HostLayout-nav .selected {
+	color: #161616;
+	text-decoration: underline;
+}
+
+footer {
+	display: flex;
+	background-color: #161616;
+	color: #aaaaaa;
+	height: 74px;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	font-weight: 500;
 }
