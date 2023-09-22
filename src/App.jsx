@@ -6,7 +6,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 
 //* Van components
-import { VanDetail, Vans } from "./Pages/Vans";
+import { VanDetail, Vans } from "./Pages/Vans/Index";
 
 //* Host components
 import { Dashboard, Income, Reviews } from "./Pages/Host/Index";
