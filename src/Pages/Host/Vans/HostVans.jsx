@@ -13,19 +13,17 @@ export default function HostVans() {
 	}, []);
 
 	const Van = vans.map((van) => (
-		<Link
-			to={`./${van.id}`}
-			key={van.id}
-			className="host-van-link-wrapper"
-		>
-			<div className="host-van-single" key={van.id}>
-				<img src={van.imageUrl} alt={`Photo of ${van.name}`} />
-				<div className="host-van-info">
-					<h3>{van.name}</h3>
-					<p>${van.price}/day</p>
+		<div className="host-van-link-wrapper" key={van.id}>
+			<Link to={`./${van.id}`}>
+				<div className="host-van-single" key={van.id}>
+					<img src={van.imageUrl} alt={`Photo of ${van.name}`} />
+					<div className="host-van-info">
+						<h3>{van.name}</h3>
+						<p>${van.price}/day</p>
+					</div>
 				</div>
-			</div>
-		</Link>
+			</Link>
+		</div>
 	));
 	return (
 		<>

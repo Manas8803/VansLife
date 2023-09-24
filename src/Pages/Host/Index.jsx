@@ -1,7 +1,21 @@
 import Dashboard from "./Dashboard";
-import Income from "./Income";
-import Reviews from "./Review";
-import HostVans from "./HostVans";
-import HostVanDetail from "./HostVanDetails";
+import Income from "./Income/Income";
+import Reviews from "./Reviews/Review";
+import {
+	HostVans,
+	HostVanDetail,
+	Details,
+	Pricing,
+	Photos,
+} from "./Vans/Index";
 
-export { Dashboard, Income, Reviews, HostVans, HostVanDetail };
+export {
+	Dashboard,
+	Income,
+	Reviews,
+	HostVans,
+	HostVanDetail,
+	Photos,
+	Pricing,
+	Details,
+};

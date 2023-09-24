@@ -20,6 +20,7 @@ body {
 }
 
 footer {
+	position: relative;
 	display: flex;
 	background-color: #161616;
 	color: #aaaaaa;
@@ -29,6 +30,7 @@ footer {
 	align-items: center;
 	margin-top: auto;
 	font-weight: 500;
+	bottom: 0;
 }
 
 nav {
@@ -404,6 +406,12 @@ a {
 	padding-left: 24px;
 }
 
+.host-van-wrapper a,
+h3,
+p {
+	color: #161616;
+}
+
 .host-van-single > img {
 	height: 70px;
 	border-radius: 5px;
@@ -437,14 +445,42 @@ a {
 	margin-right: 20px;
 }
 
-.host-van-detail-info-text > h3 {
-	margin-top: 24px;
-	margin-bottom: 5px;
-	font-size: 26px;
+.host-van-detail-nav {
+	display: flex;
+	margin-left: 2rem;
+}
+
+.host-van-detail-nav a {
+	text-decoration: none;
+	color: #4d4d4d;
+	font-weight: 500;
+	padding: 5px 20px;
+}
+
+.host-van-detail-nav a:first-of-type {
+	text-decoration: none;
+	color: #4d4d4d;
+	font-weight: 500;
+	padding: 5px 15px;
+	margin-left: -15px;
+}
+
+.host-van-detail-nav a:hover {
+	color: #161616;
+	text-decoration: underline;
 	font-weight: 700;
 }
 
-.host-van-detail-info-text > h4 {
-	font-size: 20px;
-	margin-block: 0;
+.host-van-detail-info {
+	margin-left: 2rem;
+}
+
+.host-van-detail-info > h4 {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 21px;
+}
+.host-van-detail-info > h4 > span {
+	font-weight: 200;
+	line-break: normal;
 }
