@@ -5,11 +5,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 
-//* Van components
+//? Van components
 import { VanDetail, Vans } from "./Pages/Vans/Index";
 
-//* Host components
-import { Dashboard, Income, Reviews } from "./Pages/Host/Index";
+//? Host components
+import {
+	Dashboard,
+	Income,
+	Reviews,
+	HostVans,
+	HostVanDetail,
+} from "./Pages/Host/Index";
 
 //* Server
 import "./FakeServer";
@@ -29,6 +35,8 @@ function App() {
 						<Route path="income" element={<Income />} />
 						//& Don't include '/' at the beginning.
 						<Route path="reviews" element={<Reviews />} />
+						<Route path="vans" element={<HostVans />} />
+						<Route path="vans/:id" element={<HostVanDetail />} />
 					</Route>
 				</Route>
 			</Routes>

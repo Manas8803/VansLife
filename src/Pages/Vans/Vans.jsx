@@ -30,7 +30,7 @@ export default function Vans() {
 				{vans.map((van) => {
 					return (
 						<Link
-							to={`/vans/${van.id}`}
+							to={`./${van.id}`}
 							style={{ textDecoration: "none", color: "black" }}
 							key={van.id}
 						>

@@ -19,6 +19,18 @@ body {
 	scrollbar-width: none;
 }
 
+footer {
+	display: flex;
+	background-color: #161616;
+	color: #aaaaaa;
+	height: 74px;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	font-weight: 500;
+}
+
 nav {
 	margin: 0;
 	padding: 0;
@@ -42,16 +54,11 @@ a {
 	text-decoration: none;
 	padding: 5px 20px;
 	cursor: pointer;
-}
-
-.navbar .not-selected {
-	color: #928a8a;
-	text-decoration: none;
+	color: #979797;
 }
 
 .navbar a:hover {
 	color: #161616;
-	text-decoration: underline;
 }
 
 .navbar .nav-selected {
@@ -367,10 +374,7 @@ a {
 }
 
 .HostLayout-nav a {
-	color: #707070;
-	text-decoration: none;
-	font-weight: 500;
-	padding: 5px 20px;
+	color: #979797;
 }
 
 .HostLayout-nav a:hover {
@@ -383,14 +387,64 @@ a {
 	text-decoration: underline;
 }
 
-footer {
+.host-vans-list {
+	padding-inline: 26px;
+}
+
+.host-vans-title {
+	padding-inline: 26px;
+}
+
+.host-van-single {
 	display: flex;
-	background-color: #161616;
-	color: #aaaaaa;
-	height: 74px;
-	flex-shrink: 0;
-	justify-content: center;
 	align-items: center;
-	margin-top: auto;
-	font-weight: 500;
+	background-color: white;
+	margin-bottom: 15px;
+	padding-block: 18px;
+	padding-left: 24px;
+}
+
+.host-van-single > img {
+	height: 70px;
+	border-radius: 5px;
+	margin-right: 17px;
+}
+
+.host-van-info h3 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-block: 10px;
+}
+
+.host-van-info p {
+	margin-block: 10px;
+}
+
+.host-van-detail-layout-container {
+	background-color: white;
+	padding: 24px;
+	margin: 30px 26px;
+}
+
+.host-van-detail {
+	display: flex;
+	align-items: center;
+}
+
+.host-van-detail > img {
+	height: 160px;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+.host-van-detail-info-text > h3 {
+	margin-top: 24px;
+	margin-bottom: 5px;
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.host-van-detail-info-text > h4 {
+	font-size: 20px;
+	margin-block: 0;
 }
