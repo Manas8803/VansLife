@@ -105,6 +105,8 @@ a {
 
 .home-container p {
 	line-height: 24px;
+	color: white;
+	font-weight: 200;
 }
 
 .home-container a {
