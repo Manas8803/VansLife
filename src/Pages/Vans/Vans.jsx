@@ -30,25 +30,25 @@ export default function Vans() {
 				<div className="category_buttons">
 					<button
 						className="van-type simple"
-						onClick={setSearchParams("type=simple")}
+						onClick={() => setSearchParams("type=simple")}
 					>
 						Simple
 					</button>
 					<button
 						className="van-type luxury"
-						onClick={setSearchParams("type=luxury")}
+						onClick={() => setSearchParams("type=luxury")}
 					>
 						Luxury
 					</button>
 					<button
 						className="van-type rugged"
-						onClick={setSearchParams("type=rugged")}
+						onClick={() => setSearchParams("type=rugged")}
 					>
 						Rugged
 					</button>
 				</div>
 				<div className="clear_filter_button">
-					<button onClick={setSearchParams("")}>Clear filters</button>
+					<button onClick={() => setSearchParams("")}>Clear filters</button>
 				</div>
 			</div>
 			<div className="Van-list">
@@ -56,7 +56,7 @@ export default function Vans() {
 					return (
 						<Link
 							to={`./${van.id}`}
-							style={{ textDecoration: "none", color: "black" }}
+							style={{ textDecoration: "none", color: "black",padding:"0" }}
 							key={van.id}
 						>
 							<VanCard
