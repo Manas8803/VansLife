@@ -192,38 +192,55 @@ a {
 	gap: 1.2rem;
 }
 
-.category_buttons button {
-	border: none;
-	font-family: Inter;
-	padding: 6px 9px;
-	border-radius: 5px;
-	background: #ffead0;
+.van-type {
+    height: 34px;
+    padding: 6px 26px;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFEAD0;
+    color: #4D4D4D;
+    transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.category_buttons button:hover {
-	background: #fca160;
-	cursor: pointer;
+.van-type:hover {
+    color: #FFEAD0;
 }
 
-.clear_filter_button {
-	display: flex;
+.van-type:focus {
+    outline: none;
 }
 
-.clear_filter_button button {
-	background-color: transparent;
-	border: none;
-	color: #8d8d8d;
-	font-family: Inter;
-	font-size: 0.8rem;
-	font-weight: 500;
-	line-height: 23.919px;
-	text-decoration-line: underline;
+.van-type.selected {
+    color: #FFEAD0;
 }
 
-.clear_filter_button button:hover {
-	color: #4e4e4e;
-	cursor: pointer;
+.van-type.simple:hover, .van-type.simple.selected {
+    background-color: #E17654;
 }
+
+.van-type.rugged:hover, .van-type.rugged.selected {
+    background-color: #115E59;
+}
+
+.van-type.luxury:hover, .van-type.luxury.selected {
+    background-color: #161616;
+}
+
+.van-type.clear-filters {
+    margin-left: -20px;
+    height: 34px;
+    padding: 6px 26px;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    text-decoration: underline;
+    background-color: transparent;
+    color: #4D4D4D;
+}
+
 
 .Van-list {
 	display: flex;

@@ -26,7 +26,7 @@ import "./FakeServer";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/Vans-Life">
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Home />} />
