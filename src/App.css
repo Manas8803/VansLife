@@ -54,7 +54,9 @@ nav {
 
 a {
 	text-decoration: none;
-	padding: 5px 20px;
+	padding: 5px 0;
+	padding-left: clamp(0.4em, 0.8em, 2.5em);
+	padding-right: clamp(0.4em, 0.8em, 2.5em);
 	cursor: pointer;
 	color: #979797;
 }
@@ -185,8 +187,14 @@ a {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	flex-shrink: 0;
+	gap: clamp(0rem, 0.1rem, 0.2rem);
+	flex-wrap: wrap;
 	margin-bottom: 1rem;
+}
+
+.clear_filter_button {
+	display: flex;
+	align-items: center;
 }
 
 .category_buttons {
@@ -198,7 +206,7 @@ a {
 	height: 34px;
 	padding: 6px 26px;
 	font-style: normal;
-	font-weight: 900;
+	font-weight: 400;
 	border: none;
 	border-radius: 5px;
 	background-color: #ffead0;
