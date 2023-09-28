@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import { HostLayout, Layout } from "./Layout/Index";
+import PageNotFound from "./Utility/PageNotFound";
 
 //? Van components
 import { VanDetail, Vans } from "./Pages/Vans/Index";
@@ -29,6 +30,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Layout />}>
+					<Route path="*" element={<PageNotFound />}></Route>
 					<Route index element={<Home />} />
 					<Route path="about" element={<About />} />
 					<Route path="vans" element={<Vans />} />

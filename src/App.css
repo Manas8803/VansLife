@@ -1,7 +1,3 @@
-* {
-	box-sizing: border-box;
-}
-
 html,
 body {
 	margin: 0;
@@ -25,7 +21,7 @@ footer {
 	background-color: #161616;
 	color: #aaaaaa;
 	height: 74px;
-	flex-shrink: 0;
+	flex: 1 0 100%;
 	justify-content: center;
 	align-items: center;
 	margin-top: auto;
@@ -200,13 +196,23 @@ a {
 .category_buttons {
 	display: flex;
 	gap: 1.2rem;
+	justify-content: space-around;
+}
+
+.category_buttons button {
+	padding: 0rem 0.9rem;
+	font-size: 0.9rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 200;
+	letter-spacing: 1px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .van-type {
 	height: 34px;
 	padding: 6px 26px;
 	font-style: normal;
-	font-weight: 400;
 	border: none;
 	border-radius: 5px;
 	background-color: #ffead0;
@@ -219,18 +225,34 @@ a {
 .van-type.simple.selected {
 	color: white;
 	background-color: #e17654;
-}
-
-.van-type.rugged:hover,
-.van-type.rugged.selected {
-	color: white;
-	background-color: #238881;
+	transition: 200ms all ease-in-out;
 }
 
 .van-type.luxury:hover,
 .van-type.luxury.selected {
 	color: white;
 	background-color: #161616;
+	transition: 200ms all ease-in-out;
+}
+
+.van-type.rugged:hover,
+.van-type.rugged.selected {
+	color: white;
+	background-color: #238881;
+	transition: 200ms all ease-in-out;
+}
+
+.van-type.simple:active,
+.van-type.luxury:active,
+.van-type.rugged:active {
+	transform: translate(0px, 3px);
+	transition: 50ms all ease-in-out;
+}
+
+.selected {
+	background-color: #f9f9f9;
+	color: #161616;
+	transition: 10ms all ease-in-out;
 }
 
 .clear_filter_button button {
@@ -292,6 +314,7 @@ a {
 	align-items: flex-start;
 	justify-content: space-between;
 }
+
 .vcard-type i {
 	font-family: "Inter";
 	border-radius: 5px;
@@ -303,15 +326,15 @@ a {
 	text-align: start;
 }
 
-.vcard-type .Simple {
+.vcard-type .simple {
 	background: #e17654;
 	max-height: 1.5rem;
 }
-.vcard-type .Rugged {
+.vcard-type .rugged {
 	background: #115e59;
 	max-height: 1.5rem;
 }
-.vcard-type .Luxury {
+.vcard-type .luxury {
 	background: #161616;
 	max-height: 1.5rem;
 }
@@ -397,6 +420,9 @@ a {
 
 .HostLayout-nav {
 	display: flex;
+	padding: 1rem 0;
+	font-family: Inter;
+	letter-spacing: 1px;
 }
 
 .HostLayout-nav a {
@@ -507,4 +533,26 @@ p {
 .host-van-detail-info > h4 > span {
 	font-weight: 200;
 	line-break: normal;
+}
+
+.Page-not-found {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.Page-not-found .title-container h1 {
+	text-align: center;
+	padding: 0rem 2rem;
+	font-size: 1.5rem;
+}
+
+.Page-not-found a {
+	background-color: #161616;
+	font-size: 1rem;
+	padding: 1rem 2rem;
+	margin: 2rem;
+	border-radius: 5px;
+	text-align: center;
+	color: #ffffff;
 }

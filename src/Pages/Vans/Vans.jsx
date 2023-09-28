@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import VanCard from "../../Utility/VanCard";
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
 	//* For Filtering Vans :
@@ -23,32 +23,50 @@ export default function Vans() {
 		? vans.filter((van) => van.type.toLowerCase() === searchParams.get("type"))
 		: vans;
 
+	function setSeachFilter(key, value) {
+		setSearchParams((prev) => {
+			if (!value) prev.delete(key);
+			else prev.set(key, value);
+			return prev;
+		});
+	}
+
 	return (
 		<div className="Vans-container">
 			<h3>Explore Our Van Options</h3>
 			<div className="Vans-share_button_link">
 				<div className="category_buttons">
 					<button
-						className="van-type simple"
-						onClick={() => setSearchParams("type=simple")}
+						className={`van-type simple ${
+							searchParams.get("type") === "simple" ? "selected" : ""
+						}`}
+						onClick={() => setSeachFilter("type", "simple")}
 					>
 						Simple
 					</button>
 					<button
-						className="van-type luxury"
-						onClick={() => setSearchParams("type=luxury")}
+						className={`van-type luxury ${
+							searchParams.get("type") === "luxury" ? "selected" : ""
+						}`}
+						onClick={() => setSeachFilter("type", "luxury")}
 					>
 						Luxury
 					</button>
 					<button
-						className="van-type rugged"
-						onClick={() => setSearchParams("type=rugged")}
+						className={`van-type rugged ${
+							searchParams.get("type") === "rugged" ? "selected" : ""
+						}`}
+						onClick={() => setSeachFilter("type", "rugged")}
 					>
 						Rugged
 					</button>
 				</div>
 				<div className="clear_filter_button">
-					<button onClick={() => setSearchParams("")}>Clear filters</button>
+					{searchParams.get("type") && (
+						<button onClick={() => setSeachFilter("type", null)}>
+							Clear filters
+						</button>
+					)}
 				</div>
 			</div>
 			<div className="Van-list">
@@ -56,7 +74,8 @@ export default function Vans() {
 					return (
 						<Link
 							to={`./${van.id}`}
-							style={{ textDecoration: "none", color: "black",padding:"0" }}
+							state={{ search: searchParams.toString() }}
+							style={{ textDecoration: "none", color: "black", padding: "0" }}
 							key={van.id}
 						>
 							<VanCard

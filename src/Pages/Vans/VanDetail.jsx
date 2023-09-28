@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function VanDetail() {
 	const { id } = useParams();
+	const location = useLocation();
+	const {
+		state: { search },
+	} = location;
+
 	const [vanDetail, setVanDetail] = useState(null);
 	useEffect(() => {
 		async function fetchVan() {
@@ -14,6 +19,23 @@ export default function VanDetail() {
 	}, [id]);
 	return (
 		<div className="VanDetails-container">
+			<Link
+				to={`..?${search}`}
+				relative="path"
+				style={{
+					color: "#4e4e4e",
+					alignSelf: "flex-start",
+					padding: "1rem 0rem",
+					textUnderlineOffset: "0.2rem",
+					backgroundColor: "#0000	",
+					fontWeight: "400",
+					textDecoration: "underline",
+					fontFamily: "Arial",
+					letterSpacing: "2px",
+				}}
+			>
+				&larr; Back to all Vans
+			</Link>
 			{vanDetail ? (
 				<>
 					<div className="VanDetails-img_container">

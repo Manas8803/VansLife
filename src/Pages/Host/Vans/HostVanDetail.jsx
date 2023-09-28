@@ -21,7 +21,17 @@ export default function HostVanDetail() {
 			<Link
 				to=".."
 				relative="path"
-				style={{ color: "#161616", paddingTop: "2rem" }}
+				style={{
+					color: "#4e4e4e",
+					alignSelf: "flex-start",
+					padding: "1rem 0rem",
+					textUnderlineOffset: "3px",
+					backgroundColor: "#0000	",
+					fontWeight: "400",
+					textDecoration: "underline",
+					fontFamily: "Arial",
+					letterSpacing: "1.3px",
+				}}
 			>
 				&larr; Back to all Vans
 			</Link>
@@ -60,7 +70,7 @@ export default function HostVanDetail() {
 							Photos
 						</NavLink>
 					</nav>
-						<Outlet context={vanDetail} />
+					<Outlet context={vanDetail} />
 				</>
 			) : (
 				<h1>LOADING.....</h1>
