@@ -1,28 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import VanCard from "../../Utility/VanCard";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { getVans } from "../../api";
 
-export default function Vans() {
+export function vansLoader() {
+	return getVans();
+}
+
+export function Vans() {
 	//* For Filtering Vans :
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	//? Note : If there are mutliple search params for the same key then the first value is taken.
 
-	//* All Vans Data :
-	const [vans, setVans] = useState([]);
-	useEffect(() => {
-		async function fetchData() {
-			const data = await fetch("/api/vans");
-			const { vans } = await data.json();
-			setVans(vans);
-		}
-		fetchData();
-	}, []);
+	//* For determining whether the data was fethced properly or not :
+	const [err, setErr] = useState(null);
 
-	const displayVans = searchParams.get("type")
-		? vans.filter((van) => van.type.toLowerCase() === searchParams.get("type"))
-		: vans;
-
+	const vans = useLoaderData();
+	if (err) {
+		return (
+			<h1>
+				There was an error <br /> Error Code :{err.status}
+			</h1>
+		);
+	}
 	function setSeachFilter(key, value) {
 		setSearchParams((prev) => {
 			if (!value) prev.delete(key);
@@ -30,6 +31,10 @@ export default function Vans() {
 			return prev;
 		});
 	}
+
+	const displayVans = searchParams.get("type")
+		? vans.filter((van) => van.type.toLowerCase() === searchParams.get("type"))
+		: vans;
 
 	return (
 		<div className="Vans-container">

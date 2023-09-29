@@ -1,4 +1,4 @@
 import VanDetail from "./VanDetail";
-import Vans from "./Vans";
+import { Vans, vansLoader } from "./Vans";
 
-export { VanDetail, Vans };
+export { VanDetail, Vans, vansLoader };

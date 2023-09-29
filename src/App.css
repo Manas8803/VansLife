@@ -93,6 +93,7 @@ a {
 	min-height: 350px;
 	color: white;
 	padding: 45px 23px;
+	text-align: center;
 }
 
 .home-container h1 {
@@ -113,8 +114,8 @@ a {
 	text-decoration: none;
 	background-color: #ff8c38;
 	border: none;
-	width: 100%;
 	margin-top: 27px;
+	min-width: 70%;
 	padding-block: 0.75rem;
 	color: white;
 	font-weight: 700;
@@ -539,20 +540,60 @@ p {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-}
-
-.Page-not-found .title-container h1 {
 	text-align: center;
-	padding: 0rem 2rem;
-	font-size: 1.5rem;
+	padding: 1.5rem 2.5rem;
 }
 
 .Page-not-found a {
 	background-color: #161616;
 	font-size: 1rem;
 	padding: 1rem 2rem;
+	flex: 1;
+	border-radius: 5px;
+	letter-spacing: 2px;
+	color: #ffffff;
+}
+
+.Loader-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 100%;
+	min-height: 73vh;
+}
+
+.Error-Container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 30vh;
+	text-align: center;
+}
+
+.Error-Container h1 {
+	padding: 0;
+	margin: 0;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	color: #e95021;
+}
+.Error-Container pre {
+	padding: 0;
+	margin: 0;
+	font-size: 1.3rem;
+}
+.Error-Container h3 {
+	font-size: 1.5rem;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Error-Container a {
+	background-color: #161616;
+	font-size: 1rem;
+	padding: 1rem 2rem;
 	margin: 2rem;
 	border-radius: 5px;
-	text-align: center;
 	color: #ffffff;
+	min-width: 50%;
 }

@@ -1,22 +1,37 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { getVan } from "../../api";
+import { set } from "lodash";
 
 export default function VanDetail() {
+	//* Loading State :
+	const [loading, setLoading] = useState(false);
+
 	const { id } = useParams();
 	const location = useLocation();
 	const {
 		state: { search },
 	} = location;
 
-	const [vanDetail, setVanDetail] = useState(null);
+	const [vanDetail, setVanDetail] = useState();
 	useEffect(() => {
 		async function fetchVan() {
-			const data = await fetch(`/api/vans/${id}`);
-			const { vans } = await data.json(); //& Used await two times here.
-			setVanDetail(vans);
+			setLoading(true);
+			const data = await getVan(id);
+			setVanDetail(data);
+			setLoading(false);
 		}
 		fetchVan();
 	}, [id]);
+
+	if (loading)
+		return (
+			<div className="Loader-container">
+				<h1>Loading...</h1>
+			</div>
+		);
+	if (!vanDetail) return <h1>Error 404 Not Found!!</h1>;
+
 	return (
 		<div className="VanDetails-container">
 			<Link
