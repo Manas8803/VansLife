@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { getVan } from "../../api";
-import { set } from "lodash";
 
 export default function VanDetail() {
 	//* Loading State :
