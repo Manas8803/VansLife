@@ -7,6 +7,8 @@ import {
 	Details,
 	Pricing,
 	Photos,
+	HVDloader,
+	HVloader,
 } from "./Vans/Index";
 
 export {
@@ -18,4 +20,6 @@ export {
 	Photos,
 	Pricing,
 	Details,
+	HVDloader,
+	HVloader,
 };

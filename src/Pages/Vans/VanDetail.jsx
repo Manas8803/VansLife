@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { getVan } from "../../api";
+import { requireAuth } from "../../Auth";
 
-export default function VanDetail() {
-	//* Loading State :
-	const [loading, setLoading] = useState(false);
+export async function VDloader(obj) {
+	await requireAuth(); //* Redirecting to Auth js.
+	return getVan(obj.params.id);
+}
 
-	const { id } = useParams();
+export function VanDetail() {
+	const vanDetail = useLoaderData();
 	const location = useLocation();
 	const {
 		state: { search },
 	} = location;
-
-	const [vanDetail, setVanDetail] = useState();
-	useEffect(() => {
-		async function fetchVan() {
-			setLoading(true);
-			const data = await getVan(id);
-			setVanDetail(data);
-			setLoading(false);
-		}
-		fetchVan();
-	}, [id]);
-
-	if (loading)
-		return (
-			<div className="Loader-container">
-				<h1>Loading...</h1>
-			</div>
-		);
-	if (!vanDetail) return <h1>Error 404 Not Found!!</h1>;
 
 	return (
 		<div className="VanDetails-container">
@@ -50,31 +33,27 @@ export default function VanDetail() {
 			>
 				&larr; Back to all Vans
 			</Link>
-			{vanDetail ? (
-				<>
-					<div className="VanDetails-img_container">
-						<img src={vanDetail.imageUrl} alt="" />
+			<>
+				<div className="VanDetails-img_container">
+					<img src={vanDetail.imageUrl} alt="" />
+				</div>
+				<div className="VanDetails-data_container">
+					<div className="VanDetails-type vcard-type">
+						<i className={`${vanDetail.type}`}>{vanDetail.type}</i>
 					</div>
-					<div className="VanDetails-data_container">
-						<div className="VanDetails-type vcard-type">
-							<i className={`${vanDetail.type}`}>{vanDetail.type}</i>
-						</div>
-						<div className="VanDetails-text">
-							<h1>{vanDetail.name}</h1>
-							<h3>
-								${vanDetail.price}
-								<span className="VanDetails-perday">/day</span>
-							</h3>
-							<p>{vanDetail.description}</p>
-						</div>
-						<div className="VanDetails-button_container">
-							<button>Rent this van</button>
-						</div>
+					<div className="VanDetails-text">
+						<h1>{vanDetail.name}</h1>
+						<h3>
+							${vanDetail.price}
+							<span className="VanDetails-perday">/day</span>
+						</h3>
+						<p>{vanDetail.description}</p>
 					</div>
-				</>
-			) : (
-				<h2>Loading...</h2>
-			)}
+					<div className="VanDetails-button_container">
+						<button>Rent this van</button>
+					</div>
+				</div>
+			</>
 		</div>
 	);
 }
