@@ -1,7 +1,15 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, redirect, useNavigate } from "react-router-dom";
 import icon from "../assets/images/User circle.svg";
+import logout from "../assets/images/logout.svg";
 
 export default function Navbar() {
+	const navigate = useNavigate();
+	function fakeLogOut() {
+		localStorage.removeItem("loggedIn");
+		navigate("/login");
+	}
+
+	const isLoggedIn = localStorage.getItem("loggedIn");
 	return (
 		<>
 			<header className="navbar">
@@ -26,13 +34,24 @@ export default function Navbar() {
 				>
 					Vans
 				</NavLink>
-				<NavLink
-					style={{ display: "inline" }}
-					to="/Login"
-					className={({ isActive }) => (isActive ? "nav-selected" : null)}
-				>
-					<img src={icon} alt="" />
-				</NavLink>
+				{!isLoggedIn && (
+					<NavLink
+						style={{ display: "inline" }}
+						to="/Login"
+						className={({ isActive }) => (isActive ? "nav-selected" : null)}
+					>
+						<img src={icon} alt="" />
+					</NavLink>
+				)}
+				{isLoggedIn && (
+					<img
+						src={logout}
+						alt=""
+						srcset=""
+						onClick={fakeLogOut}
+						className="logout-icon"
+					/>
+				)}
 			</header>
 		</>
 	);

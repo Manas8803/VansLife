@@ -3,7 +3,7 @@ import { getVan } from "../../api";
 import { requireAuth } from "../../Auth";
 
 export async function VDloader(obj) {
-	await requireAuth(); //* Redirecting to Auth js.
+	await requireAuth(obj.request); //* Redirecting to Auth js.
 	return getVan(obj.params.id);
 }
 

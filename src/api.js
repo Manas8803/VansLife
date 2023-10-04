@@ -28,8 +28,7 @@ async function getHostVans() {
 async function getHostVan(id) {
 	const res = await fetch(`/api/host/vans/${id}`);
 	const data = await res.json();
-	console.log(data);
-	return data.vans[0];
+	return data.vans;
 }
 
 async function loginUser(creds) {

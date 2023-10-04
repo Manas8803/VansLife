@@ -3,8 +3,8 @@ import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getVans } from "../../api";
 import { requireAuth } from "../../Auth";
 
-export async function vansLoader() {
-	await requireAuth();
+export async function vansLoader({ request }) {
+	await requireAuth(request);
 	return getVans();
 }
 

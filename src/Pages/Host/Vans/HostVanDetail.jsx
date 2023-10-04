@@ -2,13 +2,14 @@ import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { getHostVan } from "../../../api";
 import { requireAuth } from "../../../Auth";
 
-export async function HVDloader({ params }) {
-	await requireAuth();
+export async function HVDloader({ request, params }) {
+	await requireAuth(request);
 	return getHostVan(params.id);
 }
 
 export function HostVanDetail() {
 	const vanDetail = useLoaderData();
+	console.log(vanDetail);
 
 	//* If we had just did ".." here(see below in the Link component) then it would have taken us to the parent route of this component in which it is wrapped around, i.e., '/host' not 'host/vans', and parent route is the route in which this component is wrapped around, not as per the url or path.
 
