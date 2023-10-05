@@ -91,7 +91,7 @@ export function HostVanDetail() {
 
 function Loader() {
 	return (
-		<div className="dot-container">
+		<div className="dot-container" style={{margin:"2rem"}}>
 			<div className="dots"></div>
 		</div>
 	);
