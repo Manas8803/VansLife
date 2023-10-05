@@ -53,7 +53,7 @@ nav {
 a {
 	text-decoration: none;
 	padding: 5px 0;
-	padding-left: clamp(0.4em, 0.8em, 2.5em);
+	padding-left: clamp(0.2em, 0.2em, 2.5em);
 	padding-right: clamp(0.4em, 0.8em, 2.5em);
 	cursor: pointer;
 	color: #979797;
@@ -136,10 +136,16 @@ a {
 	max-width: 100%;
 }
 
+.about-hero-img-container {
+	display: flex;
+	justify-content: center;
+}
+
 .about-page-content {
-	padding-inline: 23px;
+	padding: 1rem 2.4rem 0;
 	color: #161616;
 	margin-bottom: 55px;
+	text-align: left;
 }
 
 .about-page-content h1 {
@@ -285,6 +291,7 @@ a {
 .vcard {
 	display: flex;
 	flex-direction: column;
+	margin:0 0.4rem;
 }
 
 .vcard p {
@@ -655,4 +662,84 @@ p {
 	width: 1.4rem;
 	padding: 1rem;
 	cursor: pointer;
+}
+
+/** Loaders */
+.spinner-container {
+	display: flex;
+	padding: 5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.spinner {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.spinner::before,
+.spinner::after {
+	border: 6.7px solid #1e1e1e;
+	border-radius: 50%;
+	position: absolute;
+	content: "";
+	display: block;
+}
+
+.spinner::before {
+	width: 33.6px;
+	height: 33.6px;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	animation: spinner-1o3y8q 0.75s infinite linear reverse;
+}
+
+.spinner::after {
+	animation: spinner-1o3y8q 0.5s infinite linear;
+	height: 56px;
+	width: 56px;
+	border-right-color: transparent;
+	border-top-color: transparent;
+}
+
+@keyframes spinner-1o3y8q {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.dot-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dots {
+	width: 13.4px;
+	height: 13.4px;
+	background: #1e1e1e;
+	color: #1e1e1e;
+	border-radius: 50%;
+	box-shadow: 22.4px 0, -22.4px 0;
+	animation: dots-u8fzftmd 1s infinite linear alternate;
+}
+
+@keyframes dots-u8fzftmd {
+	0% {
+		box-shadow: 22.4px 0, -22.4px 0;
+	}
+
+	33% {
+		box-shadow: 22.4px 0, -22.4px 0 rgba(30, 30, 30, 0.13);
+		background: rgba(30, 30, 30, 0.13);
+	}
+
+	66% {
+		box-shadow: 22.4px 0 rgba(30, 30, 30, 0.13), -22.4px 0;
+		background: rgba(30, 30, 30, 0.13);
+	}
 }

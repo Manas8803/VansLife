@@ -1,4 +1,4 @@
-import { NavLink, Link, redirect, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import icon from "../assets/images/User circle.svg";
 import logout from "../assets/images/logout.svg";
 
@@ -37,7 +37,7 @@ export default function Navbar() {
 				{!isLoggedIn && (
 					<NavLink
 						style={{ display: "inline" }}
-						to="/Login"
+						to="/login"
 						className={({ isActive }) => (isActive ? "nav-selected" : null)}
 					>
 						<img src={icon} alt="" />
@@ -47,7 +47,6 @@ export default function Navbar() {
 					<img
 						src={logout}
 						alt=""
-						srcset=""
 						onClick={fakeLogOut}
 						className="logout-icon"
 					/>

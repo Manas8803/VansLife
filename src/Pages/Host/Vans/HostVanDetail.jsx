@@ -1,15 +1,34 @@
-import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import {
+	Await,
+	Link,
+	NavLink,
+	Outlet,
+	defer,
+	useLoaderData,
+} from "react-router-dom";
 import { getHostVan } from "../../../api";
 import { requireAuth } from "../../../Auth";
+import { Suspense } from "react";
 
 export async function HVDloader({ request, params }) {
 	await requireAuth(request);
-	return getHostVan(params.id);
+	return defer({ van: getHostVan(params.id) });
 }
 
 export function HostVanDetail() {
-	const vanDetail = useLoaderData();
-	console.log(vanDetail);
+	const vanDetailPromise = useLoaderData();
+	function renderVan(van) {
+		return (
+			<div className="host-van-detail">
+				<img src={van.imageUrl} />
+				<div className="host-van-detail-info-text">
+					<i className={`van-type van-type-${van.type}`}>{van.type}</i>
+					<h3>{van.name}</h3>
+					<h4>${van.price}/day</h4>
+				</div>
+			</div>
+		);
+	}
 
 	//* If we had just did ".." here(see below in the Link component) then it would have taken us to the parent route of this component in which it is wrapped around, i.e., '/host' not 'host/vans', and parent route is the route in which this component is wrapped around, not as per the url or path.
 
@@ -35,16 +54,9 @@ export function HostVanDetail() {
 			</Link>
 			<>
 				<div className="host-van-detail-layout-container">
-					<div className="host-van-detail">
-						<img src={vanDetail.imageUrl} />
-						<div className="host-van-detail-info-text">
-							<i className={`van-type van-type-${vanDetail.type}`}>
-								{vanDetail.type}
-							</i>
-							<h3>{vanDetail.name}</h3>
-							<h4>${vanDetail.price}/day</h4>
-						</div>
-					</div>
+					<Suspense fallback={<Loader />}>
+						<Await resolve={vanDetailPromise.van}>{renderVan}</Await>
+					</Suspense>
 				</div>
 				<nav className="host-van-detail-nav">
 					<NavLink
@@ -67,8 +79,20 @@ export function HostVanDetail() {
 						Photos
 					</NavLink>
 				</nav>
-				<Outlet context={vanDetail} />
+				<Suspense fallback={<Loader />}>
+					<Await resolve={vanDetailPromise.van}>
+						{(van) => <Outlet context={van} />}
+					</Await>
+				</Suspense>
 			</>
 		</section>
+	);
+}
+
+function Loader() {
+	return (
+		<div className="dot-container">
+			<div className="dots"></div>
+		</div>
 	);
 }

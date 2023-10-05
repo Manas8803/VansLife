@@ -1,5 +1,3 @@
-import { redirect } from "react-router-dom";
-
 async function getVans() {
 	const res = await fetch("/api/vans/");
 	if (!res.ok) {
@@ -49,4 +47,4 @@ async function loginUser(creds) {
 	return data;
 }
 
-export { getVan, getVans, getHostVan, getHostVans, loginUser };
+export { getHostVan, getHostVans, getVan, getVans, loginUser };

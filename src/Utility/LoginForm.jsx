@@ -33,7 +33,6 @@ export function LoginForm() {
 
 	const navigate = useNavigate();
 	useEffect(() => {
-		console.log(localStorage.getItem("loggedIn"));
 		if (localStorage.getItem("loggedIn")) navigate("/host");
 	}, []);
 	const status = useNavigation().state;
